@@ -3,7 +3,7 @@ package org.javabrains;
 public class Point {
   private int x;
   private int y;
-  private int z;
+
   
   public int getX() {
     return x;
@@ -16,12 +16,6 @@ public class Point {
   }
   public void setY(int y) {
     this.y = y;
-  }
-  public int getZ() {
-    return z;
-  }
-  public void setZ(int z) {
-    this.z = z;
   }
   
 
