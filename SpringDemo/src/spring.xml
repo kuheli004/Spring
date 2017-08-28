@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding ="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEANS 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+<bean id="ParentTriangle" class="org.javabrains.Triangle">
+<property name="point">
+<list>
+<ref bean="pointA"></ref>
+</list>
+</property>
+ </bean>
+
+<bean id="triangle" class="org.javabrains.Triangle" parent="ParentTriangle">
+<property name="point">
+<list merge="true">
+<ref bean="pointB"></ref>
+<ref bean="pointC"></ref>
+</list>
+</property>
+
+ </bean>
+ 
+ <bean id="pointA" class="org.javabrains.Point" scope="prototype">
+<property name="X" value="0"/>
+<property name="Y" value="0"/>
+ </bean>
+ <bean id="pointB" class="org.javabrains.Point">
+<property name="X" value="10"/>
+<property name="Y" value="0"/>
+ </bean>
+ <bean id="pointC" class="org.javabrains.Point">
+<property name="X" value="-10"/>
+<property name="Y" value="0"/>
+ </bean>
+ 
+<!--   <bean id="name" autowire="constructor" class="java.lang.String">
+  <constructor-arg value="equilateral" type="String"></constructor-arg>
+ </bean>
+  <bean id="height" autowire="constructor">
+  <constructor-arg value="10" type="int"></constructor-arg>
+ </bean> -->
+<!--  <bean id="pointB" class="org.javabrains.Point">
+<property name="X" value="-220"/>
+<property name="Y" value="0"/>
+
+ </bean>
+ <bean id="pointC" class="org.javabrains.Point">
+<property name="X" value="1000"/>
+<property name="Y" value="0"/>
+ </bean> -->
+ <alias name="triangle" alias="myTriangle"/>
+</beans>
